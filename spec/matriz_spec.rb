@@ -13,19 +13,19 @@ describe Matriz do
     @m5 = Matriz.vector(4,4,[1,1,5,1,2,1,6,1,1,5,1,3,1,2,1,1,])
   end
   
-  describe "# Almacenamiento de nº de filas y columnas: " do
+  describe "# Almacenamiento de numero de filas y columnas: " do
     it "Almacenamiento correcto del nº de filas" do
       @m1.rows.should eq(1)
       @m2.rows.should eq(3)
     end
-    it "Almacenamiento correcto del nº de columnas" do
+    it "Almacenamiento correcto del numero de columnas" do
       @m1.cols.should eq(1)
       @m2.cols.should eq(2)
     end
   end
   
   describe "# Correcta conversion a cadena de caracteres: " do
-    it "Funcionamiento correcto del método to_s" do
+    it "Funcionamiento correcto del metodo to_s" do
       @m1.to_s.should eq('[[]]')
       @m3.to_s.should eq('[[2,3],[4,1],[6,3]]')
     end
