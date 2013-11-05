@@ -4,8 +4,6 @@ class Matriz
   
   private_class_method :new
   
-  include Enumerable
-  
   def initialize(rows, cols, ele)
     @rows, @cols = rows , cols    
     @mat=Array.new(ele)    
