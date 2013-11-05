@@ -14,7 +14,7 @@ describe Matriz do
   end
   
   describe "# Almacenamiento de numero de filas y columnas: " do
-    it "Almacenamiento correcto del nº de filas" do
+    it "Almacenamiento correcto del numero de filas" do
       @m1.rows.should eq(1)
       @m2.rows.should eq(3)
     end
