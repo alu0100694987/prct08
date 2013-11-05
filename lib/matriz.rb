@@ -104,24 +104,6 @@ class Matriz
     end
     result
   end
-
-  def to_s  
-    cadena = "["
-    for i in (0..(@rows-1))
-      cadena += "["
-      for j in (0..(@cols-1))
-        cadena += "#{@mat[pos(i,j)]}"
-        if (j < (@cols-1)) 
-          cadena += "," 
-        end
-      end
-      cadena += "]"
-      if (i < (@rows-1)) 
-        cadena += "," 
-      end
-    end
-    cadena += "]"
-  end
   
   def ==(other)
     if (@rows != other.rows || @cols != other.cols)
@@ -135,6 +117,10 @@ class Matriz
       end
     end
     return true
+  end
+  
+  def coerce(other)
+    [self,other]
   end
 
 end
