@@ -17,6 +17,3 @@ Grupo 07 - Turno de mañana
     Se satisfacen las espectativas: definición de la clase, métodos initialize, métodos factoría y attr_reader.
   
   Segunda definición de espectativas: conversión a string, y acceso y modificación de los elementos de la matriz.
-    Se satisfacen las espectativas: método to_s, y de acceso y asignación de los elementos de la matriz.
-    
-  Tercera definición de espectativas: operaciones aritméticas (suma, resta, multiplicación(matriz y escalar)), y comparación de matrices (==).
