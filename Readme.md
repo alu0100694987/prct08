@@ -20,3 +20,4 @@ Grupo 07 - Turno de mañana
     Se satisfacen las espectativas: método to_s, y de acceso y asignación de los elementos de la matriz.
     
   Tercera definición de espectativas: operaciones aritméticas (suma, resta, multiplicación(matriz y escalar)), y comparación de matrices (==).
+    Se satisfacen las espectativas: sumar, restar, multiplicar por una matriz o por un escalar y la comparación(==) de matrices.

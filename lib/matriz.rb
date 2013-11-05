@@ -58,5 +58,83 @@ class Matriz
     end
     cadena += "]"
   end
+  
+  def +(other) 
+    raise TypeError, 'Las matrices no son del mismo tamanyo' unless (@rows==other.rows && @cols==other.cols)
+      result=Matriz.vacia(@rows, @cols)
+      for i in 0...@rows
+        for j in 0...@cols
+          result[i,j]= @mat[pos(i,j)] + other[i,j]
+        end 
+      end
+      result
+  end
+  
+  def -(other) 
+    raise TypeError, 'Las matrices no son del mismo tamanyo' unless (@rows==other.rows && @cols==other.cols)
+      result=Matriz.vacia(@rows, @cols)
+      for i in 0...@rows
+        for j in 0...@cols
+          result[i,j]= @mat[pos(i,j)] - other[i,j]
+        end 
+      end
+      result
+  end
+  
+  def *(other)
+    if(other.is_a? Numeric)
+      result=Matriz.vacia(@rows, @cols)
+      for i in 0...@rows
+        for j in 0...@cols
+          result[i,j] = @mat[pos(i,j)]*other
+        end
+      end
+      
+    elsif(other.is_a? Matriz)
+      raise TypeError, 'Las matrices dadas no se pueden multiplicar entre si' unless (@cols == other.rows)
+      result=Matriz.vacia(@rows, other.cols)
+      for i in 0...@rows
+        for j in 0...other.cols
+          result[i,j]= 0
+          for k in 0...@cols
+            result[i,j] += @mat[pos(i,k)] * other[k,j]
+          end
+        end
+      end
+    end
+    result
+  end
+
+  def to_s  
+    cadena = "["
+    for i in (0..(@rows-1))
+      cadena += "["
+      for j in (0..(@cols-1))
+        cadena += "#{@mat[pos(i,j)]}"
+        if (j < (@cols-1)) 
+          cadena += "," 
+        end
+      end
+      cadena += "]"
+      if (i < (@rows-1)) 
+        cadena += "," 
+      end
+    end
+    cadena += "]"
+  end
+  
+  def ==(other)
+    if (@rows != other.rows || @cols != other.cols)
+      return false
+    end
+    for i in 0...@rows
+      for j in 0...@cols
+        if (@mat[pos(i,j)] != other[i,j])
+          return false
+        end
+      end
+    end
+    return true
+  end
 
 end

@@ -28,5 +28,35 @@ class Matriz
     aux=Array.new(rows*cols)
     new(rows, cols, aux)
   end
+  
+  def pos(x,y)
+    (x*@cols)+y
+  end
+  
+  def [](x,y)
+    @mat[pos(x,y)]
+  end
+  
+  def []=(x,y,value)
+    @mat[pos(x,y)] = value
+  end 
+  
+  def to_s  
+    cadena = "["
+    for i in (0..(@rows-1))
+      cadena += "["
+      for j in (0..(@cols-1))
+        cadena += "#{@mat[pos(i,j)]}"
+        if (j < (@cols-1)) 
+          cadena += "," 
+        end
+      end
+      cadena += "]"
+      if (i < (@rows-1)) 
+        cadena += "," 
+      end
+    end
+    cadena += "]"
+  end
 
 end
