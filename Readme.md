@@ -1,4 +1,3 @@
-
 Cristo González Rodríguez
 Juvenal Santiso Hernández
 
@@ -21,3 +20,5 @@ Grupo 07 - Turno de mañana
     
   Tercera definición de espectativas: operaciones aritméticas (suma, resta, multiplicación(matriz y escalar)), y comparación de matrices (==).
     Se satisfacen las espectativas: sumar, restar, multiplicar por una matriz o por un escalar y la comparación(==) de matrices.
+  
+  Incluyendo clase Fraccion: modificación de defensa de práctica - matrices de fracciones.
