@@ -1,3 +1,5 @@
+require 'fraccion.rb'
+
 class Matriz
 
   attr_reader :rows, :cols
@@ -95,7 +97,11 @@ class Matriz
       result=Matriz.vacia(@rows, other.cols)
       for i in 0...@rows
         for j in 0...other.cols
-          result[i,j]= 0
+          if (@mat[pos(i,j)].is_a? Fraccion)
+            result[i,j]= Fraccion.new(0)
+          else
+            result[i,j]= 0
+          end
           for k in 0...@cols
             result[i,j] += @mat[pos(i,k)] * other[k,j]
           end

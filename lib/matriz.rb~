@@ -1,3 +1,5 @@
+require 'fraccion.rb'
+
 class Matriz
 
   attr_reader :rows, :cols
@@ -95,7 +97,11 @@ class Matriz
       result=Matriz.vacia(@rows, other.cols)
       for i in 0...@rows
         for j in 0...other.cols
-          result[i,j]= 0
+          if (other[i,j].is_a? Fraccion)
+            result[i,j]= Fraccion.new(0)
+          else
+            result[i,j]= 0
+          end
           for k in 0...@cols
             result[i,j] += @mat[pos(i,k)] * other[k,j]
           end
@@ -103,24 +109,6 @@ class Matriz
       end
     end
     result
-  end
-
-  def to_s  
-    cadena = "["
-    for i in (0..(@rows-1))
-      cadena += "["
-      for j in (0..(@cols-1))
-        cadena += "#{@mat[pos(i,j)]}"
-        if (j < (@cols-1)) 
-          cadena += "," 
-        end
-      end
-      cadena += "]"
-      if (i < (@rows-1)) 
-        cadena += "," 
-      end
-    end
-    cadena += "]"
   end
   
   def ==(other)
@@ -135,6 +123,10 @@ class Matriz
       end
     end
     return true
+  end
+  
+  def coerce(other)
+    [self,other]
   end
 
 end
